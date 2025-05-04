@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestão de Músicas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  </head>
+  <body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-md">
+        <a class="navbar-brand" href="#">Bem-vindo, {{ nome }}</a>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+
+      <!-- Formulário de cadastro -->
+      <div class="card p-4 mb-4 shadow-sm">
+        <h4 class="card-title">Cadastrar Nova Música</h4>
+        <form action="{{ url_for('usuario.perfil', nome=nome) }}" method="post">
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome da Música</label>
+            <input type="text" class="form-control" id="nome" name="nome" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+      </div>
+
+      <!-- Tabela de músicas -->
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Lista de Músicas</h5>
+          <table class="table table-striped table-hover">
+            <thead class="table-primary">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for musica in musicaLista %}
+              <tr>
+                <th scope="row">{{ musica.id }}</th>
+                <td>{{ musica.nome }}</td>
+                <td>
+                  <button type="button" class="btn btn-secondary btn-sm">Editar</button>
+                  <button type="button" class="btn btn-danger btn-sm">Deletar</button>
+                  <button type="button" class="btn btn-info btn-sm text-white" onclick="playMusic('{{ musica.id }}')">Ouvir</button>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+    <script>
+      function playMusic(musicaId) {
+        let audio = new Audio(`/static/musicas/${musicaId}.mp3`);  
+        audio.play();
+      }
+    </script>
+    
+  </body>
+</html>

@@ -19,6 +19,14 @@ python3 -m venv .venv
 
 ```
 
+#### Instalação do flask
+
+```bash
+
+pip install Flask
+
+```
+
 ### Estrutura da atividade 01:
 
 ```bash

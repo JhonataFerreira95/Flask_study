@@ -7,7 +7,7 @@
 
 ```bash
 
-python3 -m venv .venv
+py -3 -m venv .venv
 
 ```
 

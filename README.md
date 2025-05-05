@@ -2,6 +2,23 @@
 
 ## Atividade 01
 
+### Para iniciar o projeto
+#### Para criação da .venv
+
+```bash
+
+python3 -m venv .venv
+
+```
+
+#### Para ativa o ambiente de densevolvimento e .venv
+
+```python
+
+.venv\Scripts\activate
+
+```
+
 ### Estrutura da atividade 01:
 
 ```bash

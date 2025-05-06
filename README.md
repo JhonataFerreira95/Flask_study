@@ -42,7 +42,7 @@ Flask_study/
 │   ├── index.html
 │   └── test.html
 ├── .gitignore
-├── README.mdmain.py
+├── README.md
 ├── main.py
 └── requirements.txt
 ```

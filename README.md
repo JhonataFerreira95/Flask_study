@@ -41,8 +41,9 @@ Flask_study/
 │   ├── forms.html
 │   ├── index.html
 │   └── test.html
-├── main.py
-└── README.md
+├── .gitignore
+├── README.md
+└── requirements.txt
 ```
 
 ---
